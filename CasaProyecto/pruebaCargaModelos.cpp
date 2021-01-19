@@ -90,7 +90,12 @@ int main( )
     Shader shader( "Shaders/modelLoading.vs", "Shaders/modelLoading.frag" );
     
     // Load models
-    Model ourModel( (char *)"Models/cama/cama.obj");
+    Model casa( (char *)"Models/casa/casa.obj");
+    Model cajon((char*)"Models/buro/cajon.obj"); 
+    Model telefono((char*)"Models/telefono/telefono.obj");
+    Model retrato((char*)"Models/retrato/retrato.obj");
+    Model silla((char*)"Models/silla/silla.obj");
+    Model puertaPrin((char*)"Models/door/puerta.obj");
    
 
     // Draw in wireframe
@@ -115,19 +120,70 @@ int main( )
         glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
         
         shader.Use( );
+
+        float tras = -1.75f;
         
         glm::mat4 view = camera.GetViewMatrix();
         glUniformMatrix4fv( glGetUniformLocation( shader.Program, "projection" ), 1, GL_FALSE, glm::value_ptr( projection ) );
         glUniformMatrix4fv( glGetUniformLocation( shader.Program, "view" ), 1, GL_FALSE, glm::value_ptr( view ) );
-        
+        GLint modelLoc = glGetUniformLocation(shader.Program, "model");
+
         // Draw the loaded model
         glm::mat4 model(1);
-        model = glm::translate( model, glm::vec3( 0.0f, -1.75f, 0.0f ) ); // Translate it down a bit so it's at the center of the scene
+        model = glm::translate( model, glm::vec3( 0.0f, tras, 0.0f ) ); // Translate it down a bit so it's at the center of the scene
         //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
-		model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
-		glUniformMatrix4fv( glGetUniformLocation( shader.Program, "model" ), 1, GL_FALSE, glm::value_ptr( model ) );
+		//model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
+		glUniformMatrix4fv( modelLoc, 1, GL_FALSE, glm::value_ptr( model ) );
 	
-		ourModel.Draw( shader );
+		casa.Draw( shader );
+
+        
+
+        
+        // Draw the loaded model
+        model= glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.0f, tras, 0.0f)); // Translate it down a bit so it's at the center of the scene
+        //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
+        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        cajon.Draw(shader);
+
+        // Draw the loaded model
+        model = glm::mat4(1);
+        
+        model = glm::translate(model, glm::vec3(0.75945f, 4.5712f+tras, -1.4055f)); // Translate it down a bit so it's at the center of the scene
+        //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
+        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        telefono.Draw(shader);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.417576f, 4.52347f + tras, -1.28148f)); // Translate it down a bit so it's at the center of the scene
+        //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
+        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        retrato.Draw(shader);
+
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(1.35797f, 4.31681f + tras, -1.82913f)); // Translate it down a bit so it's at the center of the scene
+        //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
+        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        silla.Draw(shader);
+
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(-0.67457f, 1.05998f + tras, -0.914868f)); // Translate it down a bit so it's at the center of the scene
+        //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
+        model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+
+        puertaPrin.Draw(shader);
         
         // Swap the buffers
         glfwSwapBuffers( window );

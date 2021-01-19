@@ -1,9 +1,9 @@
 ﻿  pruebaCargaModelos.cpp
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(105,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(190,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(191,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(195,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(196,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(198,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
-C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(199,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(110,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(246,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(247,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(251,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(252,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(254,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(255,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
   CasaProyecto.vcxproj -> C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\Debug\CasaProyecto.exe
