@@ -1,4 +1,15 @@
-﻿soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
+﻿  pruebaCargaModelos.cpp
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(102,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(104,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(204,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(463,30): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(542,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(543,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(547,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(548,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(550,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(551,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+soil2-debug.lib(SOIL2.obj) : warning LNK4075: se omite '/EDITANDCONTINUE' debido a la especificación '/OPT:ICF'
 LINK : warning LNK4098: la biblioteca predeterminada'MSVCRTD' entra en conflicto con otras bibliotecas; use la biblioteca /NODEFAULTLIB:biblioteca
   Generando código
   Previous IPDB not found, fall back to full compilation.
