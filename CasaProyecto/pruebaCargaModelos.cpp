@@ -19,6 +19,7 @@
 
 // Other Libs
 #include "SOIL2/SOIL2.h"
+#include "stb_image.h"
 
 // Properties
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -95,9 +96,23 @@ int main( )
     
     // OpenGL options
     glEnable( GL_DEPTH_TEST );
-    
+    Shader lightingShader("Shaders/lighting.vs", "Shaders/lighting.frag");
     // Setup and compile our shaders
     Shader shader( "Shaders/modelLoading.vs", "Shaders/modelLoading.frag" );
+    float tx = .3;
+    float ty = 5;
+    float tz = -4.60;
+    float scal = 2;
+    GLfloat vertices[] = {
+        scal*-0.1f+tx, scal*-0.1f+ty, tz, 0.0f, 0.0f,-1.0f,  0.0f,0.0f,
+        scal*0.1f+tx, scal*-0.1f+ty, tz,  0.0f, 0.0f,-1.0f,  1.0f,0.0f,
+        scal*0.1f+tx,  scal*0.1f+ty, tz,  0.0f, 0.0f,-1.0f,  1.0f,1.0f,
+        scal*-0.1f+tx,  scal*0.1f+ty, tz,  0.0f, 0.0f,-1.0f, 0.0f,1.0f };
+
+    GLuint indices[] =
+    {  // Note that we start from 0!
+        0,1,3,
+        1,2,3 };
     
     // Load models
     Model casa( (char *)"Models/casa/casa.obj");
@@ -112,6 +127,73 @@ int main( )
 
     // Draw in wireframe
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+
+
+    // First, set the container's VAO (and VBO)
+    GLuint VBO, VAO, EBO;
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
+
+    glBindVertexArray(VAO);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+    // Position attribute
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0);
+    glEnableVertexAttribArray(0);
+    // Normals attribute
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(3 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(1);
+    // Texture Coordinate attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)(6 * sizeof(GLfloat)));
+    glEnableVertexAttribArray(2);
+    glBindVertexArray(0);
+
+    // Then, we set the light's VAO (VBO stays the same. After all, the vertices are the same for the light object (also a 3D cube))
+    GLuint lightVAO;
+    glGenVertexArrays(1, &lightVAO);
+    glBindVertexArray(lightVAO);
+    // We only need to bind to the VBO (to link it with glVertexAttribPointer), no need to fill it; the VBO's data already contains all we need.
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    // Set the vertex attributes (only position data for the lamp))
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(GLfloat), (GLvoid*)0); // Note that we skip over the other data in our buffer object (we don't need the normals/textures, only positions).
+    glEnableVertexAttribArray(0);
+    glBindVertexArray(0);
+
+
+    // Load textures
+    GLuint texture1;
+    glGenTextures(1, &texture1);
+
+    int textureWidth, textureHeight, nrChannels;
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char* image;
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
+    // Diffuse map
+    image = stbi_load("Models/casa/pinturaDecoracion.jpg", &textureWidth, &textureHeight, &nrChannels, 0);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+    glGenerateMipmap(GL_TEXTURE_2D);
+    if (image)
+    {
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, textureWidth, textureHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, image);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    }
+    else
+    {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(image);
+    // Set texture units
+    lightingShader.Use();
+    glUniform1i(glGetUniformLocation(lightingShader.Program, "material.diffuse"), 0);
     
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
     
@@ -151,7 +233,27 @@ int main( )
 	
 		casa.Draw( shader );
 
-        
+
+        // Bind diffuse map
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, texture1);
+
+        glBindVertexArray(VAO);
+        model = glm::mat4(1);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+        glBindVertexArray(0);
+
+        model = glm::mat4(1);
+        model = glm::translate(model, glm::vec3(0.130003f, 5.31873f + tras, -4.6358f));
+        //model = glm::scale(model, glm::vec3(0.27f));
+        glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+        // Draw the light object (using light's vertex attributes)
+        glBindVertexArray(lightVAO);
+        //glDrawArrays(GL_TRIANGLES, 0, 36);
+        glBindVertexArray(0);
+
 
         
         // Draw the loaded model
@@ -217,6 +319,9 @@ int main( )
         banquito.Draw(shader);
 
 
+
+
+
         
         // Swap the buffers
         glfwSwapBuffers( window );
@@ -243,6 +348,10 @@ void reset() {
 
     rotLlamada = 0;
     numRins = 0;
+    llamadaP1 = false;
+    llamadaP2 = false;
+    llamadaP3 = false;
+    llamadaP4 = false;
 }
 
 void animacionAccidente() {
