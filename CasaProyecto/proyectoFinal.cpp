@@ -115,14 +115,14 @@ int main( )
         1,2,3 };
     
     // Load models
-    Model casa( (char *)"Models/casa/casa.obj");
-    Model cajon((char*)"Models/buro/cajon.obj"); 
-    Model telefono((char*)"Models/telefono/telefono.obj");
-    Model retrato((char*)"Models/retrato/retrato.obj");
-    Model silla((char*)"Models/silla/silla.obj");
-    Model puertaPrin((char*)"Models/door/puerta.obj");
-    Model banquito((char*)"Models/banco/banco.obj");
-    Model jarron((char*)"Models/jarron/jarron.obj");
+    Model casa( (char *)"Models/casa/casaTri.obj");
+    Model cajon((char*)"Models/buro/cajonTri.obj"); 
+    Model telefono((char*)"Models/telefono/telefonoTri.obj");
+    Model retrato((char*)"Models/retrato/retratoTri.obj");
+    Model silla((char*)"Models/silla/sillaTri.obj");
+    Model puertaPrin((char*)"Models/door/puertaTri.obj");
+    Model banquito((char*)"Models/banco/bancoTri.obj");
+    Model jarron((char*)"Models/jarron/jarronTri.obj");
    
 
     // Draw in wireframe

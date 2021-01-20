@@ -166,7 +166,7 @@
     <None Include="Shaders\modelLoading.vs" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="proyectoFinal.cpp" />
+    <ClCompile Include="pruebaCargaModelos.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
