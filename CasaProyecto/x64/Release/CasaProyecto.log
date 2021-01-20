@@ -1,0 +1,64 @@
+﻿  pruebaCargaModelos.cpp
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\Mesh.h(95,1): warning C4267: 'argumento': conversión de 'size_t' a 'GLsizei'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(102,18): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(104,21): warning C4305: 'inicializando': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(204,30): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(463,30): warning C4305: '+=': truncamiento de 'double' a 'float'
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(542,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(543,17): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(547,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(548,21): warning C4244: 'inicializando': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(550,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\CasaProyecto\pruebaCargaModelos.cpp(551,13): warning C4244: '=': conversión de 'double' a 'GLfloat'; posible pérdida de datos
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwSwapBuffers sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewEnableVertexAttribArray sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewBindVertexArray sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewUseProgram sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewVertexAttribPointer sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGetShaderiv sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewCompileShader sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo aiGetMaterialTextureCount sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewCreateShader sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewBindBuffer sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwGetTime sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewCreateProgram sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewUniform1i sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo stbi_load sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGetShaderInfoLog sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwGetFramebufferSize sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGetProgramiv sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwTerminate sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo SOIL_free_image_data sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwPollEvents sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwInit sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo SOIL_load_image sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwSetKeyCallback sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwSetWindowShouldClose sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewUniform1f sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwCreateWindow sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwWindowHint sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGetUniformLocation sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwMakeContextCurrent sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewBufferData sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewAttachShader sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewActiveTexture sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo stbi_image_free sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewShaderSource sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGenVertexArrays sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewUniformMatrix4fv sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo "public: char const * __cdecl Assimp::Importer::GetErrorString(void)const " (?GetErrorString@Importer@Assimp@@QEBAPEBDXZ) sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo "public: struct aiScene const * __cdecl Assimp::Importer::ReadFile(char const *,unsigned int)" (?ReadFile@Importer@Assimp@@QEAAPEBUaiScene@@PEBDI@Z) sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo "public: __cdecl Assimp::Importer::~Importer(void)" (??1Importer@Assimp@@QEAA@XZ) sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo "public: __cdecl Assimp::Importer::Importer(void)" (??0Importer@Assimp@@QEAA@XZ) sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo aiGetMaterialTexture sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp_glewExperimental sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwSetCursorPosCallback sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGetProgramInfoLog sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGenBuffers sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewGenerateMipmap sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo stbi_set_flip_vertically_on_load sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewDeleteShader sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp___glewLinkProgram sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo glfwWindowShouldClose sin resolver
+pruebaCargaModelos.obj : error LNK2001: símbolo externo __imp_glewInit sin resolver
+C:\Users\carlo\Desktop\zoomestre\grafica\Proyecto2\CasaProyecto\x64\Release\CasaProyecto.exe : fatal error LNK1120: 51 externos sin resolver
