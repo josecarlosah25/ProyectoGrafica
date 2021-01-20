@@ -29,6 +29,7 @@ void KeyCallback( GLFWwindow *window, int key, int scancode, int action, int mod
 void MouseCallback( GLFWwindow *window, double xPos, double yPos );
 void DoMovement( );
 void animacionAccidente();
+void animacionLlamada();
 
 // Camera
 Camera camera( glm::vec3( 0.0f, 0.0f, 3.0f ) );
@@ -45,6 +46,7 @@ float movRetrato = 0; bool retratoActive = false;
 float movPuerta = 0; bool puertaActive = false;
 
 float rotAccidenteB, rotAccidenteJ, movAccidente = 0; bool accidenteP1 = false; bool accidenteP2 = false; bool accidenteP3 = false;
+float rotLlamada; bool llamadaP1 = false; bool llamadaP2 = false; bool llamadaP3 = false; bool llamadaP4 = false; int numRins = 0; static int RINGS_MAX = 5;
 
 int main( )
 {
@@ -125,6 +127,7 @@ int main( )
         glfwPollEvents( );
         DoMovement( );
         animacionAccidente();
+        animacionLlamada();
         
         // Clear the colorbuffer
         glClearColor( 1.0f, 1.0f, 1.0f, 1.0f );
@@ -165,7 +168,7 @@ int main( )
         
         model = glm::translate(model, glm::vec3(0.75945f, 4.5712f+tras, -1.4055f)); // Translate it down a bit so it's at the center of the scene
         //model = glm::scale( model, glm::vec3( 0.02f, 0.02f, 0.02f ) );	// It's a bit too big for our scene, so scale it down
-        //model = glm::rotate(model, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::rotate(model, glm::radians(rotLlamada), glm::vec3(1.0f, 0.0f, 0.0f));
         glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 
         telefono.Draw(shader);
@@ -231,6 +234,15 @@ void reset() {
     puertaActive = false;
     movPuerta = 0;
 
+    accidenteP1 = false;
+    accidenteP2 = false;
+    accidenteP3 = false;
+    rotAccidenteB = 0;
+    rotAccidenteJ = 0;
+    movAccidente = 0;
+
+    rotLlamada = 0;
+    numRins = 0;
 }
 
 void animacionAccidente() {
@@ -256,6 +268,48 @@ void animacionAccidente() {
         rotAccidenteJ += vel;
         if (rotAccidenteJ >= 95.5) {
             accidenteP3 = false;
+        }
+    }
+}
+
+void animacionLlamada() {
+    float rin = 2;
+    float lim = 15;
+    if (llamadaP1) {
+        
+        rotLlamada += rin;
+        if (rotLlamada >= lim) {
+            llamadaP1 = false;
+            llamadaP2 = true;
+        }
+    }
+    if (llamadaP2) {
+        rotLlamada -= rin;
+        if (rotLlamada <= -lim) {
+            llamadaP2 = false;
+            llamadaP3 = true;
+        }
+    }
+
+    if (llamadaP3) {
+
+        rotLlamada += rin*2;
+        if (rotLlamada >= lim) {
+            llamadaP3 = false;
+            llamadaP4 = true;
+        }
+    }
+    if (llamadaP4) {
+        rotLlamada -= rin*2;
+        if (rotLlamada <= -lim) {
+            llamadaP4 = false;
+            numRins++;
+            if (numRins <= RINGS_MAX) {
+                llamadaP1 = true;
+            }
+            else {
+                rotLlamada = 0;
+            }
         }
     }
 }
@@ -341,6 +395,12 @@ void DoMovement( )
         rotAccidenteJ = 0;
         movAccidente = 0;
         accidenteP1 = true;
+    }
+
+    if (keys[GLFW_KEY_T]) {
+        rotLlamada = 0;
+        numRins = 0;
+        llamadaP1 = true;
     }
 
 }
