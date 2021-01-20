@@ -1,7 +1,7 @@
 # Blender MTL File: 'jarron.blend'
 # Material Count: 4
 
-newmtl Material.001
+newmtl Material.188
 Ns 225.000000
 Ka 1.000000 1.000000 1.000000
 Kd 0.800000 0.800000 0.800000
@@ -12,7 +12,7 @@ d 1.000000
 illum 2
 map_Kd jarron.jpg
 
-newmtl rose1
+newmtl rose1.006
 Ns 399.999988
 Ka 1.000000 1.000000 1.000000
 Kd 0.784314 0.784314 0.784314
@@ -23,7 +23,7 @@ d 1.000000
 illum 1
 map_Kd rose_texture.jpg
 
-newmtl rose1.001
+newmtl rose1.007
 Ns 399.999988
 Ka 1.000000 1.000000 1.000000
 Kd 0.784314 0.784314 0.784314
@@ -34,7 +34,7 @@ d 1.000000
 illum 1
 map_Kd rose_texture.jpg
 
-newmtl rose1.002
+newmtl rose1.008
 Ns 399.999988
 Ka 1.000000 1.000000 1.000000
 Kd 0.784314 0.784314 0.784314
